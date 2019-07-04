@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC07694722CC8E83000E78AF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC07694622CC8E83000E78AF /* Task.swift */; };
+		AC07694922CCAEEB000E78AF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC07694822CCAEEB000E78AF /* Realm.framework */; };
+		AC07694B22CCAEEC000E78AF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC07694A22CCAEEC000E78AF /* RealmSwift.framework */; };
 		AC0D470C22CA092300665ECA /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0D470B22CA092300665ECA /* InputViewController.swift */; };
 		ACD40AA022C3B3EB0017136B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD40A9F22C3B3EB0017136B /* AppDelegate.swift */; };
 		ACD40AA222C3B3EB0017136B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD40AA122C3B3EB0017136B /* ViewController.swift */; };
@@ -38,6 +41,9 @@
 /* Begin PBXFileReference section */
 		5278B4FCDF1AB8AB57EB4C1A /* Pods-taskApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskApp.release.xcconfig"; path = "Target Support Files/Pods-taskApp/Pods-taskApp.release.xcconfig"; sourceTree = "<group>"; };
 		A9FDC3F3382DB37A65E769C4 /* Pods_taskApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC07694622CC8E83000E78AF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		AC07694822CCAEEB000E78AF /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC07694A22CCAEEC000E78AF /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0D470B22CA092300665ECA /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		ACD40A9C22C3B3EB0017136B /* taskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACD40A9F22C3B3EB0017136B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC07694922CCAEEB000E78AF /* Realm.framework in Frameworks */,
+				AC07694B22CCAEEC000E78AF /* RealmSwift.framework in Frameworks */,
 				C9576621EE924A4BB1409F3C /* Pods_taskApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +92,8 @@
 		8EFFAB1E5CB03DE1FAA2586B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC07694822CCAEEB000E78AF /* Realm.framework */,
+				AC07694A22CCAEEC000E78AF /* RealmSwift.framework */,
 				A9FDC3F3382DB37A65E769C4 /* Pods_taskApp.framework */,
 			);
 			name = Frameworks;
@@ -121,6 +131,7 @@
 				ACD40AA822C3B3EC0017136B /* LaunchScreen.storyboard */,
 				ACD40AAB22C3B3EC0017136B /* Info.plist */,
 				AC0D470B22CA092300665ECA /* InputViewController.swift */,
+				AC07694622CC8E83000E78AF /* Task.swift */,
 			);
 			path = taskApp;
 			sourceTree = "<group>";
@@ -149,7 +160,6 @@
 				B9E3AB9F39338230A4038CCB /* Pods-taskApp.debug.xcconfig */,
 				5278B4FCDF1AB8AB57EB4C1A /* Pods-taskApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -328,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC07694722CC8E83000E78AF /* Task.swift in Sources */,
 				AC0D470C22CA092300665ECA /* InputViewController.swift in Sources */,
 				ACD40AA222C3B3EB0017136B /* ViewController.swift in Sources */,
 				ACD40AA022C3B3EB0017136B /* AppDelegate.swift in Sources */,
@@ -506,7 +517,9 @@
 			baseConfigurationReference = B9E3AB9F39338230A4038CCB /* Pods-taskApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = taskApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,6 +527,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.akihiro.hinata.taskApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -524,7 +538,9 @@
 			baseConfigurationReference = 5278B4FCDF1AB8AB57EB4C1A /* Pods-taskApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = taskApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -532,6 +548,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jp.techacademy.akihiro.hinata.taskApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
