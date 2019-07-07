@@ -10,10 +10,11 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
 //UITableViewDelegateとUITableViewDataSourceプロトコルを追加しそれぞれのメソッドを実装する。
     //IBOutlet接続してプロパティ化した。
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var kensaku: UISearchBar!
     
     let realm = try! Realm()//Realmのインスタンスを取得
     //DB内のタスク格納がされるリスト
@@ -21,11 +22,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //以降内容をアップデート毎に自動更新
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = self
+        kensaku.delegate = self
+        kensaku.showsCancelButton = true
+        kensaku.placeholder = "カテゴリを入力してください" //プレースホルダーの指定
+        kensaku.layer.masksToBounds = true
+        kensaku.tintColor = UIColor.blue
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         let inputViewController:InputViewController = segue.destination as! InputViewController
@@ -97,6 +104,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("検索ボタンがタップ")
+        let searchText = searchBar.text!
+        print(searchText)
+        taskArray = realm.objects(Task.self).filter("category == %@", searchText)
+//        let predicate = NSPredicate(format: "category %@", taskArray)
+//        results = realm.objects(Task.self).filter(predicate)
+        tableView.reloadData()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("キャンセルボタンがタップ")
+        kensaku.resignFirstResponder() //キャンセルを押したらキーボードを閉じて編集を中断
+        taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
+        tableView.reloadData()
     }
 }
 
