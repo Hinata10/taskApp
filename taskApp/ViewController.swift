@@ -107,18 +107,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("検索ボタンがタップ")
-        let searchText = searchBar.text!
-        print(searchText)
+        let searchText = searchBar.text! //検索欄の文字を取得
+        print(searchText) //取得できているか確認
         taskArray = realm.objects(Task.self).filter("category == %@", searchText)
+        //れるむのタスクオブジェクトより、サーチテキストと合致するカテゴリのタスクアレイを取得し表示する
 //        let predicate = NSPredicate(format: "category %@", taskArray)
 //        results = realm.objects(Task.self).filter(predicate)
-        tableView.reloadData()
+        tableView.reloadData()//テーブルビューをリロード
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("キャンセルボタンがタップ")
         kensaku.resignFirstResponder() //キャンセルを押したらキーボードを閉じて編集を中断
         taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
-        tableView.reloadData()
+        tableView.reloadData() //キャンセルを押したらタスクアレイは全てを表示、且つリロード
     }
 }
 
